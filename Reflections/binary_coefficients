@@ -1,0 +1,21 @@
+So far,we have learned 3 ways in which we can generate binomial co-efficients.
+Method 1. Using a 2D array to store values from C(0,0) till we get C(n,k)
+          Space Complexity: O( n*k )
+Method 2. Recursive function using a recurrence relation
+          Space Complexity: O( 2^n )
+Method 3. Iterative method using 1D array which stores value of C(n,k) in the last index of array
+          Space Complexity: O( k )
+
+Time Complexity: O( n*k )
+
+Method 1 when compared to Method 2 is more efficient in terms of time and space. Method  2, being a recursive function, 
+takes additional function call overhead and additional space to store variables at every function call.
+
+Method 3 when compared to Method 1 is more efficient in terms of space because it uses 1D array to compute the results.
+
+
+When do we use Method 1?
+If we want to get values of binomial co-efficients from C(0,0) till C(n,k)
+
+When do we use Method 2?
+If we just want the value of C(n,k)
