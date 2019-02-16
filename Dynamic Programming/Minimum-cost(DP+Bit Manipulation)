@@ -1,0 +1,57 @@
+/* Program to get the minimum cost of N jobs assigned to N workers given that each worker can do only one job*/
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include<math.h>
+#include<limits.h>
+int min(int a,int b)
+{
+    if(a>b)
+        return b;
+    else
+        return a;
+}
+int set_bits(int n)       /*Function to get the no. of bits set*/
+{
+    int result=0;
+    while(n)
+    {
+        result=result+1;
+        n=n&(n-1);
+    }
+    return result;
+}
+int min_cost(int a[3][3],int N)
+{
+    int set_size=pow(2,N);
+    int cost[set_size];
+
+    int i,j,x;
+    cost[0]=0;
+    for(i=1;i<set_size;i++)
+    {
+       cost[i]=INT_MAX;
+    }
+    for(i=0;i<set_size;i++)
+    {
+        x=set_bits(i);
+        for(j=0;j<N;j++)
+        {
+            if( (i&(1<<j))==0)
+            {
+                cost[i|(1<<j)]=min(cost[i|(1<<j)],a[x][j]+cost[i]);
+            }
+        }
+    }
+    return cost[set_size-1];
+}
+
+int main()
+{
+   int a[3][3]={{8,2,5},{3,2,7},{4,1,2}};
+   int N=3;
+   int minimum=min_cost(a,N);
+   printf("%d",minimum);
+    return 0;
+}
