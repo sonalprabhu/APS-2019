@@ -1,0 +1,22 @@
+/* Program to generate all subsets of a set */
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+int main()
+{
+  char data[]={'a','b','c'};
+  int size=3;
+  unsigned int set_size=pow(2,size);
+  int i,j;
+  for(i=0;i<set_size;i++)
+  {
+    for(j=0;j<size;j++)
+    {
+      if(i&(1<<j))
+      printf("%c ",data[j]);
+    }
+    printf("\n");
+  }
+  return 0;
+  }
