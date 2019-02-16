@@ -1,0 +1,39 @@
+Some code snippets to perform simple tasks using bit manipulation
+Given n is the user input
+
+To check whether a number is power of 2 or not:
+
+result=n&(n-1);
+
+Returns 0 if it is a power of 2.
+
+----------------------------------------------------
+
+To count the number of set bits in a digit:
+
+result=0;
+while(n)
+{
+  result+=1;
+  n=n & (n-1);
+}
+return result;
+
+----------------------------------------------------
+
+To get 2's complement of a number:
+
+Method 1: n & 1;
+
+Method 2: ~n + 1;
+
+
+------------------------------------------------------
+
+To guess whether a number is a multiple of 8:
+
+result=n;
+result=(result>>3)<<3;
+
+if(result==n)
+printf("Number is a multiple of 8");
