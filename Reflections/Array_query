@@ -1,0 +1,43 @@
+Let's discuss the techniques to find the minimum/maximum element in subarrays by venturing ways other than the obvious:
+the full array traversal.
+
+Look up Table Technique:
+What does it do?
+Maintains a look up table of size n*n which stores the minimum/maximum for a range i-j.
+Fetch Time?
+O(1)
+Time Efficiency?
+O(N^2)
+Space Efficiency?
+O(N^2)
+Drawbacks?
+Takes up more space for larger number of elements
+
+Square Root Decomposition Technique:
+What does it do?
+Maintains a table by dividing the array into √n sub-parts to minimise access time
+Fetch Time?
+O(√N)
+Time Efficiency?
+O(N)
+Space Efficiency?
+O(N)
+Drawbacks?
+Might fail when the queried range is between two blocks and doesnot constitute a block
+
+Segment Tree:
+What is it?
+A binary tree where each node represents a segment/interval
+Uses bottom-up approach to construct the table
+Time Efficiency?
+O(log(N))
+Drawbacks?
+Once the segment tree is built, it's structure cannot be changed. Therefore, best usage of this is when the values are static.
+
+Kadane's Algorithm:
+Dynamic programming approach
+What does it do?
+ex: In finding max subarray sum, it keeps track of all positive segments of the array and tracks maximum subarray sum among all positive
+segments.
+Time Efficiency?
+O(N)
